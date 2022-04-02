@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import ToDoInput from "./components/ToDoInput";
+import { DataProvider } from './components/DataProvider';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DataProvider> {/* butun app i context ile sardık. */}
+      <div className='App'>
+        <div className="jumbotron jumbotron-fluid mb-4 py-1 text-center">
+          <div className="container">
+            <h1 className="display-3">
+              <span className="textEfectRubberBrand" aria-hidden="true">Todos List</span>
+              {/* <span classNmae="textEfectRubberBrand" aria-hidden="true"> List</span> */}
+            </h1>
+            <p className="lead">
+              <span className="textEfectRubberBrand" aria-hidden="true">Plan, live your plan. Let your future develop according to your own preferences!</span>
+            </p>
+          </div>
+        </div>
+
+        <ToDoInput />
+      </div>
+    </DataProvider>
   );
 }
 
