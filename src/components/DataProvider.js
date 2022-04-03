@@ -5,28 +5,14 @@ export const DataContext = createContext();
 export const DataProvider = (props) => {
 
     const [todos, setTodos] = useState([
-        ""
+        // ""
         /* { name: "shopping", complete: false },
         { name: "education", complete: true }, */
     ])
-
-    console.log(todos)
-
-    // localstorage' dan kayıtları okuyoruz...
-    // useEffect(() => {
-    //     const todoStore = JSON.parse(localStorage.getItem("todoStore"))
-    //     if (todoStore) setTodos(todoStore)
-    // }, [])
-
-    // localstorage' e kayıt yapıyoruz
-    // useEffect(() => {
-    //     localStorage.setItem("todoStore", JSON.stringify(todos))
-    // }, [todos])
-
-
+    const [todoName, setTodoName] = useState("");
 
     return (
-        <DataContext.Provider value={[todos, setTodos]}>
+        <DataContext.Provider value={[todos, setTodos, todoName, setTodoName]} >
             {props.children}
         </DataContext.Provider>
     )

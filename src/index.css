@@ -24,6 +24,24 @@ code {
   margin: 50px auto;
   padding: 30px;
 }
+ul {
+  padding: 0 !important;
+}
+ul li {
+  list-style: none;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.active {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
 
 /* .rubberBand {
   -webkit-animation-name: rubberBand;

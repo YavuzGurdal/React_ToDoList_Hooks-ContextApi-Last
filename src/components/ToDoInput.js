@@ -1,18 +1,22 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import { DataContext } from './DataProvider'
 import { InputGroup, FormControl, Button, Form } from 'react-bootstrap';
+import shortid from 'shortid';
 
 const ToDoInput = () => {
 
-    const [todos, setTodos] = useContext(DataContext);
-    const [todoName, setTodoName] = useState("");
+    const [todos, setTodos, todoName, setTodoName] = useContext(DataContext); // contexapi ile bunlari aliyorum
+    //const [todoName, setTodoName] = useState("");
     //const todoInput = useRef();
 
     const addTodo = e => {
         e.preventDefault();
-        setTodos([...todos, { name: todoName, complete: false }]);
-        setTodoName("");
-        //todoInput.current.focus(); // todoinput' a focus oluyor. useRef ile
+
+        if (todoName !== '') {
+            setTodos([...todos, { id: shortid.generate(), name: todoName, complete: false, editTodo: false }]);
+            setTodoName(""); // submit yaptiktan sonra inputu bosaltiyorum
+            //todoInput.current.focus(); // todoinput' a focus oluyor. useRef ile 
+        }
     }
 
     return (
@@ -29,8 +33,8 @@ const ToDoInput = () => {
                             placeholder="What to do?"
                             autoComplete='off' // onceden yazilanlarin cikmamasi icin
                         />
-                        <Button type="submit" variant="outline-secondary" id="button-addon2">
-                            Button
+                        <Button type="submit" variant="outline-primary" id="button-addon2">
+                            Create
                         </Button>
                     </InputGroup>
                 </Form.Group>
