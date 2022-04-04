@@ -28,7 +28,6 @@ const TodoList = () => {
                 todos.map((todo) => (
                     <TodoListItem
                         todo={todo} key={todo.id} id={todo.id}
-                        // editTodoFunc={editTodoFunc}
                         switchCompleteTodo={switchCompleteTodo}
                         deleteTodo={deleteTodo}
                     />

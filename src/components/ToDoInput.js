@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef, useEffect } from 'react'
 import { DataContext } from './DataProvider'
 import { InputGroup, FormControl, Button, Form } from 'react-bootstrap';
 import shortid from 'shortid';
+import TodoList from "./TodoList";
 
 const ToDoInput = () => {
 
@@ -39,6 +40,8 @@ const ToDoInput = () => {
                     </InputGroup>
                 </Form.Group>
             </Form>
+
+            <TodoList />
         </div>
     )
 }

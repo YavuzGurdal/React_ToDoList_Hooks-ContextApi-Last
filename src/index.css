@@ -11,6 +11,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.form-control {
+  border-color: #0d6efd !important;
+}
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  /* border-color: inherit !important; */
+  /* border-color: #86b7fe; */
+  border-color: #0d6efd !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+.btn-outline-primary:focus {
+  box-shadow: none !important;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

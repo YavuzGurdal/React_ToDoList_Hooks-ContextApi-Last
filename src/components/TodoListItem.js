@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import { FaTrashAlt, FaCheck, FaEdit } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 const TodoListItem = ({ todo, editTodoFunc, switchCompleteTodo, deleteTodo }) => {
     return (
@@ -8,14 +9,15 @@ const TodoListItem = ({ todo, editTodoFunc, switchCompleteTodo, deleteTodo }) =>
             {todo.name}
 
             <div>
-                {/* <Button // silme butonu
-                    style={{ marginRight: '10px' }}
-                    onClick={() => editTodoFunc(todo.id)}
-                    variant="outline-secondary"
-                >
-                    <FaEdit />
-                </Button> */}
-
+                <Link to={`/update/${todo.id}`}>
+                    <Button // update butonu
+                        style={{ marginRight: '10px' }}
+                        //onClick={() => editTodoFunc(todo.id)}
+                        variant="outline-secondary"
+                    >
+                        <FaEdit />
+                    </Button>
+                </Link>
 
                 <Button // yapildi butonu
                     onClick={() => switchCompleteTodo(todo.id)}
@@ -31,8 +33,6 @@ const TodoListItem = ({ todo, editTodoFunc, switchCompleteTodo, deleteTodo }) =>
                 >
                     <FaTrashAlt />
                 </Button>
-
-
             </div>
         </li>
     )
