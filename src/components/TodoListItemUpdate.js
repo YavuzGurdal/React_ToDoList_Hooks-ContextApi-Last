@@ -9,7 +9,7 @@ const TodoListItemUpdate = () => {
     const { id } = useParams() // url den id yi aliyoruz. bunu app.js de Route da yazdim
     const navigate = useNavigate(); // ana sayfaya donmesi icin
 
-    const [todos, setTodos] = useContext(DataContext); // contexapi ile bunlari aliyorum
+    const { todos, setTodos } = useContext(DataContext); // contexapi ile bunlari aliyorum
 
     //const todoInput = useRef();
 

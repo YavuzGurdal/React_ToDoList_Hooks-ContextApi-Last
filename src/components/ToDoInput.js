@@ -6,7 +6,7 @@ import TodoList from "./TodoList";
 
 const ToDoInput = () => {
 
-    const [todos, setTodos, todoName, setTodoName] = useContext(DataContext); // contexapi ile bunlari aliyorum
+    const { todos, setTodos, todoName, setTodoName } = useContext(DataContext); // contexapi ile bunlari aliyorum
     //const [todoName, setTodoName] = useState("");
     //const todoInput = useRef();
 

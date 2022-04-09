@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import { FaTrashAlt, FaCheck, FaEdit } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
-const TodoListItem = ({ todo, editTodoFunc, switchCompleteTodo, deleteTodo }) => {
+const TodoListItem = ({ todo, switchCompleteTodo, deleteTodo }) => {
     return (
         <li key={todo.id} className={todo.complete ? "active" : ""}>
             {todo.name}

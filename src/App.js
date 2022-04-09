@@ -3,6 +3,7 @@ import { DataProvider } from './components/DataProvider';
 
 import { Routes, Route } from 'react-router-dom';
 import TodoListItemUpdate from "./components/TodoListItemUpdate";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path='/' element={<ToDoInput />} exact />
             <Route path='/update/:id' element={<TodoListItemUpdate />} />
           </Routes>
+          <Footer />
         </div>
       </div>
 

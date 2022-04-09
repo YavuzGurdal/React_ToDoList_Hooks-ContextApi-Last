@@ -9,12 +9,21 @@ export const DataProvider = (props) => {
         /* { name: "shopping", complete: false },
         { name: "education", complete: true }, */
     ])
+
+    const [traggerFilteredTodos, setTraggerFilteredTodos] = useState('all'); // filtreleme islemleri icin
+    const [todosCopyData, setTodosCopyData] = useState([]) // filtreleme islemleri icin
     const [todoName, setTodoName] = useState("");
+
+    //console.log(todosCopyData)
+    //console.log(todos)
 
     // localstorage' dan kayıtları okuyoruz...
     useEffect(() => {
         const todoStore = JSON.parse(localStorage.getItem("todoStore"))
-        if (todoStore) setTodos(todoStore)
+        if (todoStore) {
+            setTodos(todoStore)
+            //setTodosCopyData(todoStore)
+        }
     }, [])
 
     // localstorage' e kayıt yapıyoruz
@@ -23,7 +32,7 @@ export const DataProvider = (props) => {
     }, [todos])
 
     return (
-        <DataContext.Provider value={[todos, setTodos, todoName, setTodoName]} >
+        <DataContext.Provider value={{ todos, setTodos, todoName, setTodoName, todosCopyData, setTodosCopyData, traggerFilteredTodos, setTraggerFilteredTodos }} >
             {props.children}
         </DataContext.Provider>
     )
