@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect, useRef } from 'react'
 import { DataContext } from './DataProvider'
 import { useParams } from 'react-router-dom' // id yi almak icin
 import { InputGroup, FormControl, Button, Form } from 'react-bootstrap';
@@ -11,7 +11,7 @@ const TodoListItemUpdate = () => {
 
     const { todos, setTodos } = useContext(DataContext); // contexapi ile bunlari aliyorum
 
-    //const todoInput = useRef();
+    const todoUpdateInput = useRef();
 
     const [updateTodo, setUpdateTodo] = useState({
         id: '',
@@ -23,12 +23,6 @@ const TodoListItemUpdate = () => {
     const updateTodoFunc = e => {
         e.preventDefault();
 
-        /* onceki cozum. ama todo larin yeri degisiyor. cunku silip tekrar kaydetmis oluyorum */
-        // const newTodos = [...todos]
-        // const filteredTodos = newTodos.filter(todo => todo.id !== id)
-
-        // setTodos([...filteredTodos, updateTodo])
-
         const newTodos = [...todos]
         newTodos.forEach((todo) => {
             if (todo.id === updateTodo.id) {
@@ -36,8 +30,6 @@ const TodoListItemUpdate = () => {
             }
         })
         setTodos(newTodos)
-
-        // todoInput.current.focus(); // todoinput' a focus oluyor. useRef ile 
 
         setUpdateTodo({ //state i bosaltiyorum
             id: '',
@@ -54,6 +46,9 @@ const TodoListItemUpdate = () => {
             setUpdateTodo(todos.find(todo => todo.id === id))
         }
         getTodo()
+
+        todoUpdateInput.current.focus(); // create inputuna focus olması icin. useRef ile
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
@@ -66,6 +61,7 @@ const TodoListItemUpdate = () => {
                 <Form.Group className="mb-3">
                     <InputGroup className="mb-3">
                         <FormControl
+                            ref={todoUpdateInput} //ref degerini bu sekilde veriyoruz
                             name="name" // degistirecegim degerin name ini veriyorum
                             value={updateTodo.name}
                             onChange={e => setUpdateTodo({ ...updateTodo, name: e.target.value.toLocaleLowerCase() })}
