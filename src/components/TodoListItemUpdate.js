@@ -54,6 +54,7 @@ const TodoListItemUpdate = () => {
             setUpdateTodo(todos.find(todo => todo.id === id))
         }
         getTodo()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
     //console.log(updateTodo)
