@@ -37,6 +37,7 @@ const TodoList = () => {
 
     useEffect(() => { // butonlardan yapilan filtreleme islemleri icin yazdim
         updateCopyTodosFunc()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [traggerFilteredTodos, todos])
 
     return (
