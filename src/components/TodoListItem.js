@@ -12,7 +12,7 @@ const TodoListItem = ({ todo, switchCompleteTodo, deleteTodo }) => {
                 <Link to={`/update/${todo.id}`}>
                     <Button // update butonu
                         style={{ marginRight: '10px' }}
-                        //onClick={() => editTodoFunc(todo.id)}
+                        //onClick={() => editTodoFunc(todo.id)} //
                         variant="outline-secondary"
                     >
                         <FaEdit />
