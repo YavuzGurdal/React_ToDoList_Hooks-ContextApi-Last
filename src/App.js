@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <DataProvider> {/* butun app i context ile sardık. */}
+    <DataProvider> {/* butun app i context ile sardık.. */}
       <div>
         <div className='App'>
           <div className="jumbotron jumbotron-fluid mb-4 py-1 text-center">
